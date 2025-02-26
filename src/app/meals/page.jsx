@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import SearchMeals from '../components/SearchMeals';
 import style from './meals.module.css';
 
@@ -31,9 +32,17 @@ const MealsPage = async ({ searchParams }) => {
       <div className="grid grid-cols-4 gap-5">
         {meals ? (
           meals.map(m => (
-            <h1 className={style.test_class} key={m.strMeal}>
-              {m.strMeal}
-            </h1>
+            <div key={m.idMeal}>
+              <Image
+                src={m.strMealThumb}
+                width={500}
+                height={500}
+                alt="meal image"
+              />
+              <h1 className={style.test_class} key={m.strMeal}>
+                {m.strMeal}
+              </h1>
+            </div>
           ))
         ) : (
           <p>No meals found for this search term.</p>

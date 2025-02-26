@@ -9,7 +9,7 @@ const SearchMeals = () => {
 
   useEffect(() => {
     const searchQuery = { search };
-    const urlQuery = new URLSearchParams({ search });
+    const urlQuery = new URLSearchParams(searchQuery);
     const url = `${pathName}?${urlQuery}`;
 
     router.push(url);
